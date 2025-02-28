@@ -4,13 +4,13 @@ const MovieResults = ({ query }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  
+  // Fetch movies whenever the query changes
   useEffect(() => {
     if (query) {
       const fetchMovies = async () => {
         setLoading(true);
-        const apiKey = "1d511992"; // Replace with your API key
-        const url = `http://www.omdbapi.com/?s=${query}&apikey=${apiKey}`;
+        const apiKey = import.meta.env.VITE_OMDB_API_KEY; // Use environment variable
+        const url = `https://www.omdbapi.com/?s=${query}&apikey=${apiKey}`; // Use HTTPS
 
         try {
           const res = await fetch(url);
@@ -25,13 +25,13 @@ const MovieResults = ({ query }) => {
 
       fetchMovies();
     } else {
-      
+      // Clear movies if the query is empty
       setMovies([]);
     }
   }, [query]);
 
   return (
-    <div>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       {/* Loading State */}
       {loading && (
         <div className="flex justify-center items-center h-32">
@@ -40,7 +40,7 @@ const MovieResults = ({ query }) => {
       )}
 
       {/* Movie Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {movies.map((movie) => (
           <div
             key={movie.imdbID}
