@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search App</title>
+    <!-- Tailwind CSS CDN with Custom Theme -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class", // Enable dark mode
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366F1", // Indigo
+              secondary: "#EC4899", // Pink
+              background: "#F9FAFB", // Light background
+              card: "#FFFFFF", // White card background
+              darkBackground: "#0F172A", // Dark background
+              darkCard: "#1E293B", // Dark card background
+              header: "#E0F2FE", // Light blue header
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            backdropBlur: {
+              xs: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Add Inter Font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background dark:bg-darkBackground font-sans">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
