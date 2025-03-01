@@ -35,7 +35,7 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto pt-[60px] sm:pt-32 pb-8 px-4">
+      <main className="pt-50 pb-8"> {/* Add padding-top to account for header height */}
         <MovieResults query={query} />
       </main>
     </div>
