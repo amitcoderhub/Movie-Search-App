@@ -4,7 +4,7 @@ import MovieResults from "./components/MovieResults";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [query, setQuery] = useState(""); // Lift query state to App
+  const [query, setQuery] = useState("");
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -35,10 +35,8 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto pt-32 pb-8 px-4">
-        <div className="mx-auto max-w-7xl">
-          <MovieResults query={query} /> {/* Pass query to MovieResults */}
-        </div>
+      <main className="container mx-auto pt-[60px] sm:pt-32 pb-8 px-4">
+        <MovieResults query={query} />
       </main>
     </div>
   );

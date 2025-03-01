@@ -44,15 +44,20 @@ const MovieResults = ({ query }) => {
         {movies.map((movie) => (
           <div
             key={movie.imdbID}
-            className="bg-card dark:bg-darkCard bg-opacity-80 backdrop-blur-xs rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform"
+            className="bg-card dark:bg-darkCard bg-opacity-80 backdrop-blur-xs rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform flex flex-col h-full"
           >
-            <img
-              src={movie.Poster}
-              alt={movie.Title}
-              className="w-full h-64 object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+            {/* Movie Poster */}
+            <div className="w-full h-64 overflow-hidden">
+              <img
+                src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/300x450"} // Fallback for missing posters
+                alt={movie.Title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Movie Details */}
+            <div className="p-4 flex flex-col flex-grow">
+              <h2 className="text-xl font-bold text-gray-800 dark:text-white line-clamp-2">
                 {movie.Title}
               </h2>
               <p className="text-gray-600 dark:text-gray-400 mt-2">{movie.Year}</p>
